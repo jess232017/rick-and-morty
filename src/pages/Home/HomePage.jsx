@@ -1,8 +1,10 @@
 import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 
+import Episode from '../../components/Episode';
+
 const GET_EPISODES = gql`
-    query GetEpisodes {
+    query {
         episodes(page: 1) {
             info {
                 count
@@ -24,13 +26,13 @@ const HomePage = () => {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :(</p>;
 
-    return data.results.map(({ id, name, episode }) => (
-        <div key={id}>
-            <p>
-                {episode}: {name}
-            </p>
+    return (
+        <div className="episodes-grid">
+            {data?.episodes?.results.map((data) => (
+                <Episode {...data} key={data.episode} />
+            ))}
         </div>
-    ));
+    );
 };
 
 export default HomePage;

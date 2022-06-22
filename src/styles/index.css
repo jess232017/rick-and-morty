@@ -1,4 +1,149 @@
+html {
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+:root {
+    --eye-pink: #f07e96;
+    --rick-blue: #b2dae4;
+    --morty-yellow: #f8fe76;
+    --summer-orange: #f29901;
+    --summer-orange-dark: #f0a729;
+    --rick-secondary-blue: #e6ecff;
+    --rick-secondary-blue-dark: #dce4ff;
+}
+
 body {
     margin: 0;
     background-color: #293744;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+.app-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.app-header .main-logo {
+    width: 35rem;
+    height: 17rem;
+}
+
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.episodes-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.card-header {
+    width: 100%;
+    height: 15rem;
+    position: relative;
+    background-color: black;
+    font-size: 0.8rem;
+}
+
+.card-header .card-header-date {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    font-weight: bold;
+    padding: 1.65rem;
+    background-color: var(--morty-yellow);
+}
+
+.card-header .card-header-category {
+    position: absolute;
+    bottom: 0;
+    line-height: 15px;
+    padding: 0.5rem 1rem;
+    background-color: var(--rick-blue);
+}
+
+.card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 0 0 1px 1px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
+}
+
+.card-body-footer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.card-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem 0.5rem;
+    font-size: 1rem;
+    text-align: center;
+    color: white;
+    background-color: var(--summer-orange);
+    border: none;
+    border-radius: 0.4rem;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.card-btn.btn-secondary {
+    color: #3363ff;
+    background-color: var(--rick-secondary-blue);
+}
+
+.card-btn span {
+    margin-left: 1rem;
+    transition: 0.2s;
+}
+
+.card-btn:hover,
+.card-btn:active {
+    background-color: var(--summer-orange-dark);
+}
+
+.card-btn.btn-secondary:hover,
+.card-btn.btn-secondary:active {
+    background-color: var(--rick-secondary-blue-dark);
+}
+
+.card-btn:hover span,
+.card-btn:active span {
+    margin-left: 1.5rem;
 }
