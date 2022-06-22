@@ -10,6 +10,10 @@ const localStorageMiddleware = ({ getState }) => {
     };
 };
 
+/**
+ * If there's something in localStorage, return it.
+ * @returns The store is being re-hydrated.
+ */
 const reHydrateStore = () => {
     if (localStorage.getItem('applicationState') !== null) {
         return JSON.parse(localStorage.getItem('applicationState')); // re-hydrate the store
@@ -17,6 +21,7 @@ const reHydrateStore = () => {
 };
 
 //STORE CONFIGURATION
+/* It's creating a store with the reducer and middleware. */
 export default configureStore({
     reducer: {
         favorites: favoritesReducer,

@@ -24,7 +24,7 @@ const Episode = ({ id, name, air_date, episode }) => {
     }, [favList, episode]);
 
     return (
-        <div className="card">
+        <article className="card">
             <div className="card-header">
                 <div className="card-header-date">
                     <span>{date[2]}</span>
@@ -44,20 +44,20 @@ const Episode = ({ id, name, air_date, episode }) => {
 
                 <div className="card-body-footer">
                     {exists ? (
-                        <button className="card-btn btn-secondary" onClick={removeEpisode}>
+                        <button className="btn btn-secondary" onClick={removeEpisode}>
                             Remover <span>🗑️</span>
                         </button>
                     ) : (
-                        <button className="card-btn btn-secondary" onClick={addEpisode}>
+                        <button className="btn btn-secondary" onClick={addEpisode}>
                             Agregar <span>&#10084;</span>
                         </button>
                     )}
-                    <Link to={`/detail/${id}`} className="card-btn">
+                    <Link to={`/detail/${id}`} className="btn">
                         Ver más <span>&rarr;</span>
                     </Link>
                 </div>
             </div>
-        </div>
+        </article>
     );
 };
 

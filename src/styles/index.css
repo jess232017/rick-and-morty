@@ -1,3 +1,5 @@
+@import-normalize;
+
 html {
     box-sizing: border-box;
 }
@@ -9,6 +11,7 @@ html {
 
 :root {
     --eye-pink: #f07e96;
+    --plumbus-pink: #f9d9ca;
     --rick-blue: #b2dae4;
     --morty-yellow: #f8fe76;
     --summer-orange: #f29901;
@@ -27,11 +30,78 @@ h1 {
     margin: 0;
     font-size: 1.5rem;
 }
+h2 {
+    color: var(--rick-secondary-blue-dark);
+}
+
+h1.main-title {
+    margin: 4rem;
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+    color: var(--rick-secondary-blue);
+}
 
 a {
     text-decoration: none;
 }
 
+hr {
+    border: 1px solid var(--rick-secondary-blue);
+}
+
+/*NAVBAR*/
+nav {
+    width: 100%;
+    padding: 0.3rem 0;
+    background-color: #202d3ada;
+    position: fixed;
+    z-index: 1;
+}
+
+nav div.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media only screen and (min-width: 1090px) {
+    nav div.container {
+        flex-direction: row;
+    }
+}
+
+nav div .logo {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--rick-secondary-blue);
+}
+
+nav div ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+}
+
+nav div ul li a {
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0.7rem 1rem;
+    border-radius: 0.3rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--rick-secondary-blue);
+}
+
+nav div ul li a.active,
+nav div ul li a:hover {
+    color: black;
+    background: var(--rick-blue);
+}
+
+/*LOGO*/
 .app-header {
     width: 100%;
     display: flex;
@@ -39,19 +109,25 @@ a {
 }
 
 .app-header .main-logo {
-    width: 35rem;
-    height: 17rem;
+    width: 100%;
+    margin-top: 5.8rem;
+}
+
+@media only screen and (min-width: 1090px) {
+    .app-header .main-logo {
+        margin-top: 4rem;
+    }
 }
 
 .container {
-    max-width: 1080px;
-    margin: 0 auto;
+    margin: 0 1rem;
 }
 
-.episodes-grid {
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+@media only screen and (min-width: 1090px) {
+    .container {
+        max-width: 1080px;
+        margin: 0 auto;
+    }
 }
 
 .card {
@@ -62,7 +138,7 @@ a {
 
 .card-header {
     width: 100%;
-    height: 15rem;
+    height: 12.5rem;
     position: relative;
     background-color: black;
     font-size: 0.8rem;
@@ -92,6 +168,12 @@ a {
     background-color: var(--rick-blue);
 }
 
+.card-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .card-body {
     flex: 1;
     display: flex;
@@ -103,13 +185,29 @@ a {
     box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
 }
 
+.card-body .card-body-badge {
+    margin-top: 0.5rem;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.card-body .card-body-badge p {
+    margin: 0rem 0;
+    color: #293744;
+}
+
+.card-body .card-body-badge p:nth-child(2) {
+    text-align: end;
+}
+
 .card-body-footer {
     display: flex;
     justify-content: center;
     gap: 1rem;
 }
 
-.card-btn {
+.btn {
     display: block;
     width: 100%;
     padding: 1rem 0.5rem;
@@ -123,27 +221,91 @@ a {
     cursor: pointer;
 }
 
-.card-btn.btn-secondary {
+.btn.btn-secondary {
     color: #3363ff;
     background-color: var(--rick-secondary-blue);
 }
 
-.card-btn span {
+.btn span {
     margin-left: 1rem;
     transition: 0.2s;
 }
 
-.card-btn:hover,
-.card-btn:active {
+.btn:hover,
+.btn:active {
     background-color: var(--summer-orange-dark);
 }
 
-.card-btn.btn-secondary:hover,
-.card-btn.btn-secondary:active {
+.btn.btn-secondary:hover,
+.btn.btn-secondary:active {
     background-color: var(--rick-secondary-blue-dark);
 }
 
-.card-btn:hover span,
-.card-btn:active span {
+.btn:hover span,
+.btn:active span {
     margin-left: 1.5rem;
+}
+
+.episodes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    margin-bottom: 3rem;
+    gap: 2rem;
+}
+
+.episodes-more {
+    margin: 2rem;
+}
+
+.detail-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+@media only screen and (min-width: 720px) {
+    .detail-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 3rem;
+        gap: 3rem;
+    }
+}
+
+.detail-image img {
+    width: 100%;
+    box-shadow: 0.3rem 0.3rem 0.3rem #0f0f0f9d;
+}
+
+.detail-description .detail-item p {
+    color: var(--rick-secondary-blue);
+}
+
+.detail-description .detail-item p span {
+    font-weight: 900;
+}
+
+.detail-description .detail-item div.detail-badge {
+    display: flex;
+    justify-content: space-between;
+}
+
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    gap: 0.5rem;
+    max-height: 25rem;
+    margin-bottom: 3rem;
+    overflow: auto;
+}
+
+.footer {
+    padding: 1rem;
+    text-align: center;
+    background-color: black;
+    color: var(--rick-secondary-blue);
+}
+
+.footer p span {
+    font-weight: 900;
 }

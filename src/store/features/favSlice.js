@@ -4,6 +4,7 @@ const initialFavorites = {
     favorites: [],
 };
 
+/* Creating a slice of the Redux store. */
 export const favoritesSlice = createSlice({
     name: 'favorites',
     initialState: initialFavorites,

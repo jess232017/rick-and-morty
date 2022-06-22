@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 
 import Episode from '../../components/Episode';
 
 const GET_EPISODES = gql`
-    query {
-        episodes(page: 1) {
+    query GetEpisodes($page: Int!) {
+        episodes(page: $page) {
             info {
-                count
+                pages
             }
             results {
                 id
@@ -21,17 +21,38 @@ const GET_EPISODES = gql`
 `;
 
 const HomePage = () => {
-    const { loading, error, data } = useQuery(GET_EPISODES);
+    const [page, setPage] = useState(1);
+    const { loading, error, data, fetchMore } = useQuery(GET_EPISODES, {
+        variables: { page },
+    });
+
+    const loadMore = () => {
+        fetchMore({
+            variables: { page: page + 1 },
+        });
+        setPage(page + 1);
+    };
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error :(</p>;
 
     return (
-        <div className="episodes-grid">
-            {data?.episodes?.results.map((data) => (
-                <Episode {...data} key={data.episode} />
-            ))}
-        </div>
+        <>
+            <h1 className="main-title">Lista de episodios</h1>
+
+            <div className="episodes-grid">
+                {data?.episodes?.results.map((data) => (
+                    <Episode {...data} key={data.episode} />
+                ))}
+            </div>
+            {page < data?.episodes?.info?.pages && (
+                <div className="episodes-more">
+                    <button className="btn " onClick={loadMore}>
+                        Ver más episodios<span>📺</span>
+                    </button>
+                </div>
+            )}
+        </>
     );
 };
 
