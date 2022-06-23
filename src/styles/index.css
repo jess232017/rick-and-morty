@@ -118,7 +118,9 @@ nav div ul li a:hover {
 
 .app-header .main-logo {
     width: 100%;
+    height: auto;
     margin-top: 5.8rem;
+    aspect-ratio: attr(width) / attr(height);
 }
 
 @media only screen and (min-width: 1090px) {
@@ -191,6 +193,7 @@ nav div ul li a:hover {
     justify-content: space-between;
     background-color: white;
     border-radius: 0 0 1px 1px;
+    font-weight: 400;
     padding: 1.5rem;
     box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
 }
@@ -346,7 +349,7 @@ nav div ul li a:hover {
 }
 
 .detail-description .detail-item p span {
-    font-weight: 900;
+    font-weight: 800;
 }
 
 .detail-description .detail-item div.detail-badge {

@@ -26,7 +26,7 @@ const Episode = ({ id, name, air_date, episode }) => {
     return (
         <article className="card">
             <div className="card-header">
-                <img src={`/img/episodes/episode (${id}).webp`} alt={name} />
+                <img src={`/img/episodes/episode (${id}).webp`} alt={name} loading="lazy" />
                 <div className="card-header-date">
                     <span>{date[2]}</span>
                     <span>{date[0].slice(0, 3)}</span>
@@ -34,12 +34,12 @@ const Episode = ({ id, name, air_date, episode }) => {
                 <div className="card-header-category">{episode}</div>
             </div>
             <div className="card-body">
-                <div className="card-body-header">
+                <div>
                     <Link to={`/detail/${id}`}>
                         <h1>{name}</h1>
                     </Link>
                     <p>Lorem ipsum "dolor sit amet elit"</p>
-                    <p className="card-body-description">
+                    <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias autem aliquid, recusandae maiores iste fuga,
                         explicabo dolor vitae magnam!
                     </p>
