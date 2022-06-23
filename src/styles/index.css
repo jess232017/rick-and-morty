@@ -103,6 +103,13 @@ nav div ul li a:hover {
 }
 
 /*LOGO*/
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
 .app-header {
     width: 100%;
     display: flex;
@@ -119,6 +126,8 @@ nav div ul li a:hover {
         margin-top: 4rem;
     }
 }
+
+/* UTILS */
 
 .container {
     margin: 0 1rem;
@@ -196,9 +205,14 @@ nav div ul li a:hover {
 .card-body .card-body-badge p {
     margin: 0rem 0;
     color: #293744;
+    font-weight: 600;
 }
 
-.card-body .card-body-badge p:nth-child(2) {
+.card-body .card-body-badge p span {
+    font-weight: 200;
+}
+
+.card-body .card-body-badge p:nth-child(2n) {
     text-align: end;
 }
 
@@ -247,6 +261,55 @@ nav div ul li a:hover {
     margin-left: 1.5rem;
 }
 
+.loader-container {
+    overflow: hidden;
+}
+
+.loader,
+.loader:after {
+    border-radius: 50%;
+    width: 10em;
+    height: 10em;
+}
+.loader {
+    margin: 60px auto;
+    font-size: 10px;
+    position: relative;
+    text-indent: -9999em;
+    border-top: 1.1em solid var(--rick-blue);
+    border-right: 1.1em solid var(--rick-blue);
+    border-bottom: 1.1em solid var(--rick-blue);
+    border-left: 1.1em solid #ffffff;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: load 1.1s infinite linear;
+    animation: load 1.1s infinite linear;
+}
+
+@-webkit-keyframes load {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes load {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+/*  PAGES */
 .episodes-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
@@ -289,6 +352,9 @@ nav div ul li a:hover {
 .detail-description .detail-item div.detail-badge {
     display: flex;
     justify-content: space-between;
+}
+.detail-description .detail-item div.detail-badge p:nth-child(2n) {
+    text-align: end;
 }
 
 .characters-grid {

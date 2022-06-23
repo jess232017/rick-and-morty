@@ -3,6 +3,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import Character from '../../components/Character';
+import Loader from '../../components/Loader';
 
 const GET_EPISODE = gql`
     query GetEpisode($episodeId: ID!) {
@@ -31,7 +32,7 @@ const DetailPage = () => {
     });
     const { episode } = data || {};
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Loader />;
     if (error) return <p>Error :(</p>;
 
     return (
@@ -60,7 +61,7 @@ const DetailPage = () => {
                             </p>
                             <p>
                                 Creado el:
-                                <br /> <span>{episode.created}</span>
+                                <br /> <span>{new Date(episode.created).toDateString()}</span>
                             </p>
                         </div>
                     </div>

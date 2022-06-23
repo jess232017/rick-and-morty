@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 
 import Episode from '../../components/Episode';
+import Loader from '../../components/Loader';
 
 const GET_EPISODES = gql`
     query GetEpisodes($page: Int!) {
@@ -33,7 +34,7 @@ const HomePage = () => {
         setPage(page + 1);
     };
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Loader />;
     if (error) return <p>Error :(</p>;
 
     return (

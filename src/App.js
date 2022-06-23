@@ -13,7 +13,7 @@ import { Routes, Route } from 'react-router-dom';
 
 const App = () => {
     return (
-        <div className="App">
+        <div className="app">
             <Navbar />
             <header className="app-header">
                 <img className="main-logo" alt="Rick and Morty Logo" src="/img/banner.jpg" />
