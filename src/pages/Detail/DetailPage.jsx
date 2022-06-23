@@ -40,7 +40,7 @@ const DetailPage = () => {
             <div className="detail-grid">
                 <div className="detail-image">
                     <h2>Imagen</h2>
-                    <img src="https://tvthumbs.fancaps.net/20219.jpg" alt={episode.name} />
+                    <img src={`/img/episodes/episode (${episodeId}).webp`} alt={episode.name} />
                 </div>
                 <div className="detail-description">
                     <h2>

@@ -9,7 +9,7 @@ const Navbar = () => {
         <nav>
             <div className="container">
                 <Link to="/" className={`${pathname !== '/favorites' && 'active'}`}>
-                    <div className="logo">Rick y Morty - Wiki</div>
+                    <div className="logo">Rick y Morty</div>
                 </Link>
                 <ul>
                     <li>

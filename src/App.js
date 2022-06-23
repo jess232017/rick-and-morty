@@ -16,7 +16,7 @@ const App = () => {
         <div className="App">
             <Navbar />
             <header className="app-header">
-                <img className="main-logo" alt="Rick and Morty Logo" src="img/banner.jpg" />
+                <img className="main-logo" alt="Rick and Morty Logo" src="/img/banner.jpg" />
             </header>
             <main className="container">
                 <Routes>
