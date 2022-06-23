@@ -118,7 +118,9 @@ nav div ul li a:hover {
 
 .app-header .main-logo {
     width: 100%;
+    height: auto;
     margin-top: 5.8rem;
+    aspect-ratio: attr(width) / attr(height);
 }
 
 @media only screen and (min-width: 1090px) {
@@ -346,7 +348,7 @@ nav div ul li a:hover {
 }
 
 .detail-description .detail-item p span {
-    font-weight: 900;
+    font-weight: 800;
 }
 
 .detail-description .detail-item div.detail-badge {

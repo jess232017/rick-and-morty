@@ -1,30 +1,57 @@
 import React from 'react';
-
-//pages
-import HomePage from './pages/Home/HomePage';
-import DetailPage from './pages/Detail/DetailPage';
-import FavoritesPage from './pages/Favorites/FavoritesPage';
+import { Routes, Route } from 'react-router-dom';
 
 //components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import Loader from './components/Loader';
 
-import { Routes, Route } from 'react-router-dom';
+//pages
+const HomePage = React.lazy(() => import('./pages/Home/HomePage'));
+const DetailPage = React.lazy(() => import('./pages/Detail/DetailPage'));
+const FavoritesPage = React.lazy(() => import('./pages/Favorites/FavoritesPage'));
 
 const App = () => {
     return (
         <div className="app">
             <Navbar />
             <header className="app-header">
-                <img className="main-logo" alt="Rick and Morty Logo" src="/img/banner.webp" />
+                <img
+                    width="2500"
+                    height="827"
+                    className="main-logo"
+                    alt="Rick and Morty Logo"
+                    src="https://res.cloudinary.com/js-media/image/upload/v1656005387/banner_bbydcy.webp"
+                />
             </header>
             <main className="container">
                 <ScrollToTop>
                     <Routes>
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="/favorites" element={<FavoritesPage />} />
-                        <Route path="detail/:episodeId" element={<DetailPage />} />
+                        <Route
+                            path="/"
+                            element={
+                                <React.Suspense fallback={<Loader />}>
+                                    <HomePage />
+                                </React.Suspense>
+                            }
+                        />
+                        <Route
+                            path="/favorites"
+                            element={
+                                <React.Suspense fallback={<Loader />}>
+                                    <FavoritesPage />
+                                </React.Suspense>
+                            }
+                        />
+                        <Route
+                            path="detail/:episodeId"
+                            element={
+                                <React.Suspense fallback={<Loader />}>
+                                    <DetailPage />
+                                </React.Suspense>
+                            }
+                        />
                     </Routes>
                 </ScrollToTop>
             </main>

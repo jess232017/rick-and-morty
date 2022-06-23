@@ -26,7 +26,7 @@ const Episode = ({ id, name, air_date, episode }) => {
     return (
         <article className="card">
             <div className="card-header">
-                <img src={`/img/episodes/episode (${id}).webp`} alt={name} />
+                <img src={`/img/episodes/episode (${id}).webp`} alt={name} loading="lazy" />
                 <div className="card-header-date">
                     <span>{date[2]}</span>
                     <span>{date[0].slice(0, 3)}</span>

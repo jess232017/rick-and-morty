@@ -4,7 +4,7 @@ const Character = ({ gender, image, name, species, status, type }) => {
     return (
         <article className="card">
             <div className="card-header">
-                <img src={image} alt={name} />
+                <img src={image} alt={name} loading="lazy" />
                 <div className="card-header-category">{status}</div>
             </div>
             <div className="card-body">
