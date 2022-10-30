@@ -1,25 +1,9 @@
 import React, { useState } from 'react';
-import { useQuery, gql } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 
-import Episode from '../../components/Episode';
 import Loader from '../../components/Loader';
-
-const GET_EPISODES = gql`
-    query GetEpisodes($page: Int!) {
-        episodes(page: $page) {
-            info {
-                pages
-            }
-            results {
-                id
-                name
-                air_date
-                episode
-                created
-            }
-        }
-    }
-`;
+import Episode from '../../components/Episode';
+import { GET_EPISODES } from '../../utils/graphql/query/episodes';
 
 const HomePage = () => {
     const [page, setPage] = useState(1);

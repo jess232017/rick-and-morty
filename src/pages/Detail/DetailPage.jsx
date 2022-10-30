@@ -1,29 +1,11 @@
 import React from 'react';
 
+import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
-import { useQuery, gql } from '@apollo/client';
-import Character from '../../components/Character';
-import Loader from '../../components/Loader';
 
-const GET_EPISODE = gql`
-    query GetEpisode($episodeId: ID!) {
-        episode(id: $episodeId) {
-            name
-            air_date
-            episode
-            created
-            characters {
-                id
-                name
-                status
-                species
-                type
-                gender
-                image
-            }
-        }
-    }
-`;
+import Loader from '../../components/Loader';
+import Character from '../../components/Character';
+import { GET_EPISODE } from '../../utils/graphql/query/episodes';
 
 const DetailPage = () => {
     let { episodeId } = useParams();
