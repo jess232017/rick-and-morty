@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { add, remove } from '../store/features/favSlice';
+import { add, remove } from '../../store/features/favSlice';
 
 const Episode = ({ id, name, air_date, episode }) => {
     const dispatch = useDispatch();

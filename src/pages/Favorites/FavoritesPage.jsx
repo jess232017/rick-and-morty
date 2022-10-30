@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useSelector } from 'react-redux';
-import Episode from '../../components/Episode';
+import Episode from '../../components/Common/Episode';
 
 const FavoritesPage = () => {
     const data = useSelector((state) => state.favorites);

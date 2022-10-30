@@ -3,8 +3,8 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 
-import Loader from '../../components/Loader';
-import Character from '../../components/Character';
+import Loader from '../../components/Common/Loader';
+import Character from '../../components/Detail/Character';
 import { GET_EPISODE } from '../../utils/graphql/query/episodes';
 
 const DetailPage = () => {

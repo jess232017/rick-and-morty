@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 
-import Loader from '../../components/Loader';
-import Episode from '../../components/Episode';
+import Loader from '../../components/Common/Loader';
+import Episode from '../../components/Common/Episode';
 import { GET_EPISODES } from '../../utils/graphql/query/episodes';
 
 const HomePage = () => {

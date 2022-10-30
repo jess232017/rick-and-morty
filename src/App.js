@@ -2,10 +2,10 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 //components
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop';
-import Loader from './components/Loader';
+import Navbar from './components/Layout/Navbar';
+import Footer from './components/Layout/Footer';
+import ScrollToTop from './components/Layout/ScrollToTop';
+import Loader from './components/Common/Loader';
 
 //pages
 const HomePage = React.lazy(() => import('./pages/Home/HomePage'));
